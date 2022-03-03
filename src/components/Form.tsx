@@ -24,14 +24,14 @@ const Form: React.FC<FormProps> = ({ attemps, setAttemps }: FormProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="doodle">
       <input
-        className="text-center border-2 border-gray-400 p-2 m-2 text-3xl"
+        className="doodle-border"
         type="text"
         onChange={handleChange}
         maxLength={5}
         value={attemp}
-        placeholder="Enter your word"
+        placeholder="Enter your guess "
         required
       />
     </form>

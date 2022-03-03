@@ -24,9 +24,9 @@ function App() {
   return (
     <div className="grid place-items-center">
       <AzureAuthenticationButton />
-    {/* <Description />
+    <Description />
     <Form attemps={attemps} setAttemps={setAttemps} />
-    <Attemps attemps={attemps} answer={answer} /> */}
+    <Attemps attemps={attemps} answer={answer} />
   </div>
   )
 }

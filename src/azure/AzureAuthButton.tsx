@@ -17,7 +17,7 @@ const AzureAuthenticationButton = ({ onAuthenticated }: any): JSX.Element => {
 
   const logIn = (method: string): any => {
     const typeName = "loginPopup";
-    const logInType = isIE ? "loginRedirect" : typeName;
+    const logInType = isIE ? "loginPopup" : typeName;
 
     // Azure Login
     authenticationModule.login(logInType, returnedAccountInfo);

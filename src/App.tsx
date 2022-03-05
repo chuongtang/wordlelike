@@ -58,7 +58,6 @@ function App() {
 
   return (
     <div className="grid place-content-center doodle">
-
       <AzureAuthenticationButton onAuthenticated={onAuthenticated} />
       <LevelSelector />
       <Description />

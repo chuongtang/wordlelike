@@ -1,7 +1,7 @@
 const LevelSelector: React.FC = () => {
   return (
     <div className="text-center my-4">
-      <h1>Wordlol</h1>
+      <h1>WordleLike</h1>
       <p className="italic">How many words can you wordle?</p>
       <p>
         {/* <label for="example-select1">Example select</label> */}

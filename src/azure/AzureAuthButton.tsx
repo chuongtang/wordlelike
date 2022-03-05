@@ -21,9 +21,12 @@ const AzureAuthenticationButton = ({ onAuthenticated }: any): JSX.Element => {
 
     // Azure Login
     authenticationModule.login(logInType, returnedAccountInfo);
+    console.log('\x1b[31m%s\x1b[0m', returnedAccountInfo);
   };
+
   const logOut = (): any => {
     if (user) {
+      console.log('\x1b[32m%s\x1b[0m',user)
       onAuthenticated(undefined);
       // Azure Logout
       authenticationModule.logout(user);
@@ -32,6 +35,7 @@ const AzureAuthenticationButton = ({ onAuthenticated }: any): JSX.Element => {
 
   const returnedAccountInfo = (user: AccountInfo) => {
     // set state
+    console.log('\x1b[34m%s\x1b[0m',user)
     setAuthenticated(user?.name ? true : false);
     onAuthenticated(user);
     setUser(user);

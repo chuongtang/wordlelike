@@ -9,7 +9,7 @@ const setBackgroundColor = (
   answer: string
 ): string => {
   if (answer[index] === attemp[index]) {
-    return "bg-green-300";
+    return "bg-green";
   }
 
   const countOccuringInAnswer = answer
@@ -26,10 +26,10 @@ const setBackgroundColor = (
     countOccuringInAnswer >
     occuringInAttempBeforeCurrentIdx
   ) {
-    return "bg-yellow-300";
+    return "bg-yellow";
   }
 
-  return "bg-gray-300";
+  return "bg-gray"
 };
 
 const Attemps: React.FC<AttempsProps> = ({ attemps, answer }) => {
@@ -44,7 +44,7 @@ const Attemps: React.FC<AttempsProps> = ({ attemps, answer }) => {
                 attemp,
                 letterIndex,
                 answer
-              )} h-12 w-12 text-2xl flex border-2 border-gray-300 p-1 m-1 box-border justify-center items-center`}
+              )} attempBox flex doodle-border justify-center place-content-center`}
             >
               {letter}
             </span>

@@ -49,7 +49,7 @@ const AzureAuthenticationButton = ({ onAuthenticated }: any): JSX.Element => {
     return (
       <div id="authenticationButtonDiv">
         <div id="authentication">
-          <button id="authenticationButton" onClick={() => logOut()}>
+          <button id="authenticationButton" onClick={() => logOut()} className="doodle-border">
             Log out
           </button>
         </div>

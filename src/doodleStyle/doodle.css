@@ -172,3 +172,70 @@
 .doodle input[type="checkbox"]:checked:after, .doodle input[type="radio"]:checked:after {
   content: "*";
 }
+
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.flex-col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+}
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-green {
+  color: rgba(16, 185, 129, var(--tw-text-opacity));
+}
+.text-yellow {
+  color: rgba(245, 158, 11, var(--tw-text-opacity));
+}
+.text-gray {
+  color: rgba(107, 114, 128, var(--tw-text-opacity));
+}
+.font-bold {
+  font-weight: 700;
+}
+.bg-green {
+  background-color: rgba(0, 255, 0);
+}
+.bg-yellow {
+  background-color: rgba(255, 255, 0);
+}
+.bg-gray {
+  background-color: rgba(192, 192, 192);
+}
+
+.place-content-center {
+  place-content: center;
+}
+.justify-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.attempBox {
+  height: 3rem;
+width: 3rem;
+padding: 0.25rem;
+margin: 0.25rem;
+}

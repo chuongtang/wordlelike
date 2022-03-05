@@ -24,17 +24,20 @@ const Form: React.FC<FormProps> = ({ attemps, setAttemps }: FormProps) => {
   };
 
   return (
+    <div className="flex">
     <form onSubmit={handleSubmit} className="doodle">
       <input
-        className="doodle-border"
+        // className="doodle doodle-border"
         type="text"
         onChange={handleChange}
         maxLength={5}
         value={attemp}
-        placeholder="Enter your guess "
+        // placeholder="Enter your guess "
         required
       />
     </form>
+    <h3>👈 Enter you guess here</h3>
+    </div>
   );
 };
 

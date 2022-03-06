@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 // import './index.css'
 import './doodleStyle/doodle.css'
 import App from './App'
+import { AppContextProvider } from './context/AppContext'
 
 // MSAL imports
 import { PublicClientApplication, EventType, EventMessage, AuthenticationResult } from "@azure/msal-browser";
@@ -27,7 +28,9 @@ msalInstance.addEventCallback((event: EventMessage) => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <App pca={msalInstance}  />
+    <AppContextProvider>
+      <App pca={msalInstance} />
+    </AppContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )

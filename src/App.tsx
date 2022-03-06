@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import Description from './components/IntroRules';
+import { useState, useEffect, useContext } from 'react';
+import IntroRules from './components/IntroRules';
 import Form from "./components/Form";
 import PlayAgain from "./components/PlayAgain";
 import Attemps from "./components/Attemps";
 import LevelSelector from "./components/LevelSelector";
 import answers from "./answers/answerkey.json";
-// import AzureAuthenticationButton from './azure/azure-authentication-component'
+import AppContext from './context/AppContext'
 import words from './answers/words'
 import { AccountInfo } from "@azure/msal-browser";
 import './App.css'
@@ -14,6 +14,7 @@ import './App.css'
 import { MsalProvider } from "@azure/msal-react";
 import { IPublicClientApplication } from "@azure/msal-browser";
 import SignInSignOutButton from './azure/SignInSignOutButton';
+import { AppContextProvider } from './context/AppContext';
 
 type AppProps = {
   pca: IPublicClientApplication
@@ -21,7 +22,14 @@ type AppProps = {
 
 function App({ pca }: AppProps) {
 
+  const { level } = useContext(AppContext);
+  const [showLevel, setShowLevel] = useState<number>(3);
 
+  useEffect(() => {
+    console.log("Level in App", level)
+    setShowLevel(level);
+
+  }, [level]);
 
   console.log(words(7))
   const answer = words(6)[Math.floor(Math.random() * words(6).length)];
@@ -42,17 +50,14 @@ function App({ pca }: AppProps) {
     <div className="grid place-content-center doodle">
       {/* <AzureAuthenticationButton onAuthenticated={onAuthenticated} /> */}
       <MsalProvider instance={pca}>
+
         <SignInSignOutButton />
         <LevelSelector />
-        <Description />
+        <h1>Level set to {showLevel}</h1>
+        <IntroRules />
         <Form attemps={attemps} setAttemps={setAttemps} />
         <Attemps attemps={attemps} answer={answer} />
-        {currentUser && (
-          <div>
-            <PrettyPrintJson data={currentUser} />
-            <ShowPermissionRevokeLinks />
-          </div>
-        )}
+
       </MsalProvider>
     </div>
   )

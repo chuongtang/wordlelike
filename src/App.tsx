@@ -5,13 +5,21 @@ import PlayAgain from "./components/PlayAgain";
 import Attemps from "./components/Attemps";
 import LevelSelector from "./components/LevelSelector";
 import answers from "./answers/answerkey.json";
-import AzureAuthenticationButton from './azure/azure-authentication-component'
+// import AzureAuthenticationButton from './azure/azure-authentication-component'
 import words from './answers/words'
 import { AccountInfo } from "@azure/msal-browser";
 import './App.css'
 
+// MSAL imports
+import { MsalProvider } from "@azure/msal-react";
+import { IPublicClientApplication } from "@azure/msal-browser";
+import SignInSignOutButton from './azure/SignInSignOutButton';
 
-function App() {
+type AppProps = {
+  pca: IPublicClientApplication
+};
+
+function App({ pca }: AppProps) {
 
   // current authenticated user
   const [currentUser, setCurrentUser] = useState<AccountInfo>();
@@ -30,8 +38,8 @@ function App() {
     );
   };
 
-   // Quick link - user revokes app's permission
-   const ShowPermissionRevokeLinks = () => {
+  // Quick link - user revokes app's permission
+  const ShowPermissionRevokeLinks = () => {
     return (
       <div>
         <div><a href="https://myapps.microsoft.com" target="_blank" rel="noopener">Revoke AAD permission</a></div>
@@ -58,17 +66,20 @@ function App() {
 
   return (
     <div className="grid place-content-center doodle">
-      <AzureAuthenticationButton onAuthenticated={onAuthenticated} />
-      <LevelSelector />
-      <Description />
-      <Form attemps={attemps} setAttemps={setAttemps} />
-      <Attemps attemps={attemps} answer={answer} />
-      {currentUser && (
-        <div>
-          <PrettyPrintJson data={currentUser} />
-          <ShowPermissionRevokeLinks />
-        </div>
-      )}
+      {/* <AzureAuthenticationButton onAuthenticated={onAuthenticated} /> */}
+      <MsalProvider instance={pca}>
+        <SignInSignOutButton />
+        <LevelSelector />
+        <Description />
+        <Form attemps={attemps} setAttemps={setAttemps} />
+        <Attemps attemps={attemps} answer={answer} />
+        {currentUser && (
+          <div>
+            <PrettyPrintJson data={currentUser} />
+            <ShowPermissionRevokeLinks />
+          </div>
+        )}
+      </MsalProvider>
     </div>
   )
 }

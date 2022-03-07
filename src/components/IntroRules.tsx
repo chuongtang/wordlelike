@@ -1,10 +1,16 @@
+import { useState, useEffect, useContext } from 'react';
+import AppContext from '../context/AppContext';
+
 const IntoRules: React.FC = () => {
+
+  const { level } = useContext(AppContext);
+
   return (
     <div className="text-center my-4">
      
       <ul className="text-left">
         <li className="">Guess the word by typing it in the input below.</li>
-        <li>You have 5 guesses.</li>
+        <li>You have<span className="font-bold"> {level}</span> guesses.</li>
         <li>
           If a letter is in the correct spot, it will be{" "}
           <span className="bg-green font-bold">green</span>

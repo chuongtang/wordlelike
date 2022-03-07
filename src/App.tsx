@@ -31,8 +31,8 @@ function App({ pca }: AppProps) {
 
   }, [level]);
 
-  console.log(words(4))
-  const answer = words(6)[Math.floor(Math.random() * words(6).length)];
+  console.log(words(level))
+  const answer = words(level)[Math.floor(Math.random() * words(6).length)];
   // const answer = answers[Math.floor(Math.random() * answers.length)];
   console.log(answer);
   const [attemps, setAttemps] = useState<string[]>([]);
@@ -56,7 +56,6 @@ function App({ pca }: AppProps) {
         <AuthenticatedTemplate>
           <LevelSelector />
         </AuthenticatedTemplate>
-        <h1>Level set to {showLevel}</h1>
         <IntroRules />
         <Form attemps={attemps} setAttemps={setAttemps} />
         <Attemps attemps={attemps} answer={answer} />

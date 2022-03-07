@@ -22,6 +22,7 @@ const LevelSelector: React.FC = () => {
           <option value="7">7</option>
         </select>
       </p>
+      
     </div>
   );
 };

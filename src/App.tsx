@@ -31,7 +31,7 @@ function App({ pca }: AppProps) {
 
   }, [level]);
 
-  console.log(words(7))
+  console.log(words(4))
   const answer = words(6)[Math.floor(Math.random() * words(6).length)];
   // const answer = answers[Math.floor(Math.random() * answers.length)];
   console.log(answer);

@@ -7,11 +7,6 @@ export const SignOutButton = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
 
-    useEffect(async ()=>{
-        const result = await fetch('https://graph.microsoft.com/v1.0/me')
-        setUserDetail(result);
-    })
-
     const handleLogout = (logoutType: string) => {
         setAnchorEl(null);
 

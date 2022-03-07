@@ -24,26 +24,8 @@ export const SignInButton = () => {
             onClick={() => handleLogin("popup")}
             color="inherit"
         >
-            Login
-        </button>
-        {/* <Menu
-            id="menu-appbar"
-            anchorEl={anchorEl}
-            anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-            }}
-            keepMounted
-            transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-            }}
-            open={open}
-            onClose={() => setAnchorEl(null)}
-        >
-            <MenuItem onClick={() => handleLogin("popup")} key="loginPopup">Sign in using Popup</MenuItem>
-            <MenuItem onClick={() => handleLogin("redirect")} key="loginRedirect">Sign in using Redirect</MenuItem>
-        </Menu> */}
+            👩‍💻Login 
+        </button> <span>to track your high score and play at different levels</span>
     </div>
 )
 };

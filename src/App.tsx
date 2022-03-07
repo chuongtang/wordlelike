@@ -7,7 +7,7 @@ import LevelSelector from "./components/LevelSelector";
 import answers from "./answers/answerkey.json";
 import AppContext from './context/AppContext'
 import words from './answers/words'
-import { AccountInfo } from "@azure/msal-browser";
+import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
 import './App.css'
 
 // MSAL imports
@@ -48,16 +48,18 @@ function App({ pca }: AppProps) {
 
   return (
     <div className="grid place-content-center doodle">
-      {/* <AzureAuthenticationButton onAuthenticated={onAuthenticated} /> */}
       <MsalProvider instance={pca}>
-
         <SignInSignOutButton />
-        <LevelSelector />
+        <h1 className="text-center">WordleLike</h1>
+        <p className="text-center">How many words can you wordle in this wordleLike game of wordle?</p>
+        <p className="text-center">( kinda like Tongue Twisters 😛 eh?)</p>
+        <AuthenticatedTemplate>
+          <LevelSelector />
+        </AuthenticatedTemplate>
         <h1>Level set to {showLevel}</h1>
         <IntroRules />
         <Form attemps={attemps} setAttemps={setAttemps} />
         <Attemps attemps={attemps} answer={answer} />
-
       </MsalProvider>
     </div>
   )

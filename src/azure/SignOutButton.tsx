@@ -1,34 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMsal } from "@azure/msal-react";
 
 export const SignOutButton = () => {
-  const { instance } = useMsal();
+    const { instance } = useMsal();
+    const [userDetail, setUserDetail] = useState();
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
 
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
+    useEffect(async ()=>{
+        const result = await fetch('https://graph.microsoft.com/v1.0/me')
+        setUserDetail(result);
+    })
 
-  const handleLogout = (logoutType: string) => {
-      setAnchorEl(null);
+    const handleLogout = (logoutType: string) => {
+        setAnchorEl(null);
 
-      if (logoutType === "popup") {
-          instance.logoutPopup({
-              mainWindowRedirectUri: "/"
-          });
-      } else if (logoutType === "redirect") {
-          instance.logoutRedirect();
-      }
-  }
+        if (logoutType === "popup") {
+            instance.logoutPopup({
+                mainWindowRedirectUri: "/"
+            });
+        } else if (logoutType === "redirect") {
+            instance.logoutRedirect();
+        }
+    }
 
-  return (
-      <div>
-          <button
-              // onClick={(event) => setAnchorEl(event.currentTarget)}
-              onClick={() => handleLogout("popup")}
-              color="inherit"
-          >
-              {/* <AccountCircle /> */}Sign Out
-          </button>
-          {/* <Menu
+    return (
+        <div>
+            <button
+                // onClick={(event) => setAnchorEl(event.currentTarget)}
+                onClick={() => handleLogout("popup")}
+                color="inherit"
+            >
+                {/* <AccountCircle /> */}Sign Out
+            </button>
+            {/* <Menu
               id="menu-appbar"
               anchorEl={anchorEl}
               anchorOrigin={{
@@ -46,6 +51,6 @@ export const SignOutButton = () => {
               <MenuItem onClick={() => handleLogout("popup")} key="logoutPopup">Logout using Popup</MenuItem>
               <MenuItem onClick={() => handleLogout("redirect")} key="logoutRedirect">Logout using Redirect</MenuItem>
           </Menu> */}
-      </div>
-  )
+        </div>
+    )
 };

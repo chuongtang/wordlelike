@@ -10,10 +10,9 @@ const LevelSelector: React.FC = () => {
   }
 
   return (
-    <div className="text-center my-4">
-      <h1>WordleLike</h1>
-      <p className="italic">How many words can you wordle?</p>
-      <p>
+    <div className="text-center">
+      
+      <p><span>Select your level </span>
         {/* <label for="example-select1">Example select</label> */}
         <select onChange={selectChange}>
           <option value="3">3</option>

@@ -7,16 +7,28 @@
   margin: auto;
   padding: 1em;
   font-family: 'Short Stack', cursive;
-  font-size: 2em;
+  font-size: 1.5em;
 }
-
+h1{
+  color: #E07A5F;
+}
+h2{
+  color:#81B29A
+}
+h3{
+  color:#3D405B
+}
 .doodle * {
   box-sizing: border-box;
+  
 }
 
 .doodle {
-  background-color: #FDF7F1;
+  background: rgb(244,241,222);
+  background: radial-gradient(circle, rgba(244,241,222,1) 0%, rgba(242,204,143,1) 100%);
   color: #3c3c3c;
+  padding: 0.5em;
+  border-radius: 0.5em
 }
 
 .doodle input, .doodle textarea, .doodle table, .doodle img {
@@ -65,6 +77,10 @@
 
 .doodle button {
   text-align: center;
+}
+.doodle button:hover {
+  box-shadow: inset 100px 0 0 0 #FFD100;
+  color: white;
 }
 
 .doodle input[type="color"] {
@@ -132,7 +148,7 @@
 .doodle button, .doodle textarea, .doodle input, .doodle select {
   background-color: unset;
   font-family: 'Short Stack', cursive;
-  font-size: 1em;
+  font-size: 0.75em;
   color: #3c3c3c;
 }
 
@@ -192,8 +208,20 @@
   display: -ms-grid;
   display: grid;
 }
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 .grid-cols-5 {
   grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.grid-cols-7 {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 .text-center {
@@ -203,13 +231,13 @@
   text-align: left;
 }
 .text-green {
-  color: rgba(16, 185, 129, var(--tw-text-opacity));
+  color: rgba(16, 185, 129);
 }
 .text-yellow {
-  color: rgba(245, 158, 11, var(--tw-text-opacity));
+  color: rgba(245, 158, 11);
 }
 .text-gray {
-  color: rgba(107, 114, 128, var(--tw-text-opacity));
+  color: rgba(107, 114, 128);
 }
 .font-bold {
   font-weight: 700;
@@ -224,6 +252,9 @@
   background-color: rgba(192, 192, 192);
 }
 
+.float-right {
+  float: right;
+}
 .place-content-center {
   place-content: center;
 }
@@ -234,8 +265,9 @@
   justify-content: center;
 }
 .attempBox {
-  height: 3rem;
+height: 3rem;
 width: 3rem;
 padding: 0.25rem;
 margin: 0.25rem;
 }
+

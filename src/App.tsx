@@ -1,40 +1,78 @@
-import { useState, useEffect } from 'react';
-import Description from './components/IntroRules';
+import { useState, useEffect, useContext } from 'react';
+import IntroRules from './components/IntroRules';
 import Form from "./components/Form";
 import PlayAgain from "./components/PlayAgain";
 import Attemps from "./components/Attemps";
 import LevelSelector from "./components/LevelSelector";
-import answers from "./answers/answerkey.json";
-import AzureAuthenticationButton from './azure/AzureAuthenticationButton'
+import AppContext from './context/AppContext'
 import words from './answers/words'
-
+import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
 import './App.css'
 
+// MSAL imports
+import { MsalProvider } from "@azure/msal-react";
+import { IPublicClientApplication } from "@azure/msal-browser";
+import SignInSignOutButton from './azure/SignInSignOutButton';
+import { AppContextProvider } from './context/AppContext';
 
-function App() {
-  console.log(words(7))
-  const answer = words(6)[Math.floor(Math.random() * words(6).length)];
-  // const answer = answers[Math.floor(Math.random() * answers.length)];
+type AppProps = {
+  pca: IPublicClientApplication
+};
+
+const App = ({ pca }: AppProps) => {
+
+  const { level } = useContext(AppContext);
+
+  console.log(words(level))
+  const answer = words(level);
+  // const answer = words(level)[Math.floor(Math.random() * words(6).length)];
+
   console.log(answer);
+  const [key, setKey] = useState<string>("win")
   const [attemps, setAttemps] = useState<string[]>([]);
 
-  const isWinner = attemps.length > 0 && attemps[attemps.length - 1] === answer;
+  useEffect(() => {
+    setKey(answer);
+
+    // reset the attemps grid when level changed
+    setAttemps([])
+  }, [level]);
+
+
+  const isWinner = attemps.length > 0 && attemps[attemps.length - 1] === key;
   if (isWinner) {
+    console.log("WINNNING")
     return (
-      <PlayAgain attemps={attemps} answer={answer}>
-        You win!
+      <PlayAgain attemps={attemps} answer={key}>
+        You Won🥇🏆!
+      </PlayAgain>
+    );
+  }
+
+  const isLoser = attemps.length >= level && attemps[attemps.length - 1] !== key;
+  if (isLoser) {
+    return (
+      <PlayAgain attemps={attemps} answer={key}>
+        You Lost🤔!
       </PlayAgain>
     );
   }
 
   return (
     <div className="grid place-content-center doodle">
-    <AzureAuthenticationButton />
-    <LevelSelector />
-    <Description />
-    <Form attemps={attemps} setAttemps={setAttemps} />
-    <Attemps attemps={attemps} answer={answer} />
-  </div>
+      <MsalProvider instance={pca}>
+        <SignInSignOutButton />
+        <h1 className="text-center">WordleLike key is :{key}</h1>
+        <h2 className="text-center">How many words can you wordle in this wordleLike game of wordle?</h2>
+        <p className="text-center">( kinda like Tongue Twisters 😛 eh?)</p>
+        <AuthenticatedTemplate>
+          <LevelSelector />
+        </AuthenticatedTemplate>
+        <IntroRules />
+        <Form attemps={attemps} setAttemps={setAttemps} />
+        <Attemps attemps={attemps} answer={key} />
+      </MsalProvider>
+    </div>
   )
 }
 

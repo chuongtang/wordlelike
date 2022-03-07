@@ -9,14 +9,26 @@
   font-family: 'Short Stack', cursive;
   font-size: 1.5em;
 }
-
+h1{
+  color: #E07A5F;
+}
+h2{
+  color:#81B29A
+}
+h3{
+  color:#3D405B
+}
 .doodle * {
   box-sizing: border-box;
+  
 }
 
 .doodle {
-  background-color: #FDF7F1;
+  background: rgb(244,241,222);
+  background: radial-gradient(circle, rgba(244,241,222,1) 0%, rgba(242,204,143,1) 100%);
   color: #3c3c3c;
+  padding: 0.5em;
+  border-radius: 0.5em
 }
 
 .doodle input, .doodle textarea, .doodle table, .doodle img {
@@ -65,6 +77,10 @@
 
 .doodle button {
   text-align: center;
+}
+.doodle button:hover {
+  box-shadow: inset 100px 0 0 0 #FFD100;
+  color: white;
 }
 
 .doodle input[type="color"] {

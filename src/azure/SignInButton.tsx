@@ -22,7 +22,7 @@ export const SignInButton = () => {
         <button
             // onClick={(event) => setAnchorEl(event.currentTarget)}
             onClick={() => handleLogin("popup")}
-            color="inherit"
+            className="doodle"
         >
             👩‍💻Login 
         </button> <span>to track your high score and play at different levels</span>

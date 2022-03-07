@@ -63,7 +63,7 @@ const App = ({ pca }: AppProps) => {
       <MsalProvider instance={pca}>
         <SignInSignOutButton />
         <h1 className="text-center">WordleLike key is :{key}</h1>
-        <p className="text-center">How many words can you wordle in this wordleLike game of wordle?</p>
+        <h2 className="text-center">How many words can you wordle in this wordleLike game of wordle?</h2>
         <p className="text-center">( kinda like Tongue Twisters 😛 eh?)</p>
         <AuthenticatedTemplate>
           <LevelSelector />

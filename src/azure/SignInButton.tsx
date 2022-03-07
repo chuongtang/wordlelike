@@ -22,10 +22,10 @@ export const SignInButton = () => {
         <button
             // onClick={(event) => setAnchorEl(event.currentTarget)}
             onClick={() => handleLogin("popup")}
-            className="doodle"
+            className="doodle animate-bounce"
         >
-            👩‍💻Login 
-        </button> <span>to track your high score and play at different levels</span>
+            Login 
+        </button> <span>to try different levels</span>
     </div>
 )
 };

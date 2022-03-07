@@ -1,3 +1,6 @@
+import { useState, useEffect, useContext } from 'react';
+import AppContext from '../context/AppContext'
+
 export interface AttempsProps {
   attemps: string[];
   answer: string;
@@ -6,13 +9,13 @@ export interface AttempsProps {
 const setBackgroundColor = (
   attemp: string,
   index: number,
-  answer: string
+  key: string
 ): string => {
-  if (answer[index] === attemp[index]) {
+  if (key[index] === attemp[index]) {
     return "bg-green";
   }
 
-  const countOccuringInAnswer = answer
+  const countOccuringInAnswer = key
     .split("")
     .filter((letter: string) => letter === attemp[index]).length;
 
@@ -22,7 +25,7 @@ const setBackgroundColor = (
     .filter((letter: string) => letter === attemp[index]).length;
 
   if (
-    answer.includes(attemp[index]) &&
+    key.includes(attemp[index]) &&
     countOccuringInAnswer >
     occuringInAttempBeforeCurrentIdx
   ) {
@@ -33,10 +36,13 @@ const setBackgroundColor = (
 };
 
 const Attemps: React.FC<AttempsProps> = ({ attemps, answer }) => {
+
+  const { level } = useContext(AppContext);
+  
   return (
     <ol className="m-4">
       {attemps.map((attemp, attempIndex) => (
-        <li key={attempIndex} className="grid grid-cols-5">
+        <li key={attempIndex} style={{display:'grid', gridTemplateColumns: `repeat(${level}, minmax(0, 1fr))`}}>
           {attemp.split("").map((letter, letterIndex) => (
             <span
               key={letterIndex}

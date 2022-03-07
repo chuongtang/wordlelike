@@ -4,7 +4,6 @@ import Form from "./components/Form";
 import PlayAgain from "./components/PlayAgain";
 import Attemps from "./components/Attemps";
 import LevelSelector from "./components/LevelSelector";
-import answers from "./answers/answerkey.json";
 import AppContext from './context/AppContext'
 import words from './answers/words'
 import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
@@ -20,27 +19,31 @@ type AppProps = {
   pca: IPublicClientApplication
 };
 
-function App({ pca }: AppProps) {
-
+const App = ({ pca }: AppProps)=> {
+  
   const { level } = useContext(AppContext);
+
+  console.log(words(level))
+  const answer = words(level);
+  // const answer = words(level)[Math.floor(Math.random() * words(6).length)];
+  
+  console.log(answer);
   const [showLevel, setShowLevel] = useState<number>(3);
+  const [key, setKey] = useState<string>("win")
 
   useEffect(() => {
-    console.log("Level in App", level)
-    setShowLevel(level);
+    // console.log("Level in App", level)
+    // setShowLevel(level);
+    setKey(answer);
 
   }, [level]);
 
-  console.log(words(level))
-  const answer = words(level)[Math.floor(Math.random() * words(6).length)];
-  // const answer = answers[Math.floor(Math.random() * answers.length)];
-  console.log(answer);
   const [attemps, setAttemps] = useState<string[]>([]);
 
-  const isWinner = attemps.length > 0 && attemps[attemps.length - 1] === answer;
+  const isWinner = attemps.length > 0 && attemps[attemps.length - 1] === key;
   if (isWinner) {
     return (
-      <PlayAgain attemps={attemps} answer={answer}>
+      <PlayAgain attemps={attemps} answer={key}>
         You win!
       </PlayAgain>
     );
@@ -58,7 +61,7 @@ function App({ pca }: AppProps) {
         </AuthenticatedTemplate>
         <IntroRules />
         <Form attemps={attemps} setAttemps={setAttemps} />
-        <Attemps attemps={attemps} answer={answer} />
+        <Attemps attemps={attemps} answer={key} />
       </MsalProvider>
     </div>
   )

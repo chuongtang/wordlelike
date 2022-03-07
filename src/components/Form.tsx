@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import AppContext from '../context/AppContext'
 
 export interface FormProps {
   attemps: string[];
@@ -6,12 +7,14 @@ export interface FormProps {
 }
 
 const Form: React.FC<FormProps> = ({ attemps, setAttemps }: FormProps) => {
+
+  const { level } = useContext(AppContext);
   const [attemp, setAttemp] = useState<string>("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (attemp.length !== 5) {
+    if (attemp.length !== level) {
       return;
     }
 
@@ -30,7 +33,7 @@ const Form: React.FC<FormProps> = ({ attemps, setAttemps }: FormProps) => {
         // className="doodle doodle-border"
         type="text"
         onChange={handleChange}
-        maxLength={5}
+        maxLength={level}
         value={attemp}
         // placeholder="Enter your guess "
         required

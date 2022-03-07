@@ -8,6 +8,7 @@ import AppContext from './context/AppContext'
 import words from './answers/words'
 import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
 import './App.css'
+import Confetti from 'react-confetti'
 
 // MSAL imports
 import { MsalProvider } from "@azure/msal-react";
@@ -38,14 +39,18 @@ const App = ({ pca }: AppProps) => {
     setAttemps([])
   }, [level]);
 
+  console.log("KEY IS...", key)
 
   const isWinner = attemps.length > 0 && attemps[attemps.length - 1] === key;
   if (isWinner) {
     console.log("WINNNING")
     return (
-      <PlayAgain attemps={attemps} answer={key}>
-        You Won🥇🏆!
-      </PlayAgain>
+      <>
+        <Confetti />
+        <PlayAgain attemps={attemps} answer={key}>
+          You Won🥇🏆!
+        </PlayAgain>
+      </>
     );
   }
 
@@ -62,7 +67,7 @@ const App = ({ pca }: AppProps) => {
     <div className="grid place-content-center doodle">
       <MsalProvider instance={pca}>
         <SignInSignOutButton />
-        <h1 className="text-center">WordleLike key is :{key}</h1>
+        <h1 className="text-center">WordleLike</h1>
         <h2 className="text-center">How many words can you wordle in this wordleLike game of wordle?</h2>
         <p className="text-center">( kinda like Tongue Twisters 😛 eh?)</p>
         <AuthenticatedTemplate>

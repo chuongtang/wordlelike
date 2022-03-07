@@ -2,11 +2,10 @@ import { Configuration, PopupRequest } from "@azure/msal-browser";
 
 // Config object to be passed to Msal on creation
 const msalID:string = (import.meta.env.VITE_AZURE_ACTIVE_DIRECTORY_APP_CLIENT_ID as string);
-console.log(msalID);
+
 export const msalConfig: Configuration = {
     auth: {
         clientId: msalID,
-        // authority: "http://localhost:3000",
         redirectUri: "/",
         postLogoutRedirectUri: "/"
     }

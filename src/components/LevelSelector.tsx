@@ -6,7 +6,6 @@ const LevelSelector: React.FC = () => {
   const selectChange = (e:React.ChangeEvent<HTMLSelectElement>) =>{
     e.preventDefault();
     setLevel(parseInt(e.target.value));
-    console.log("SetLevel with",e.target.value);
   }
 
   return (

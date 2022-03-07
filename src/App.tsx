@@ -23,12 +23,7 @@ type AppProps = {
 const App = ({ pca }: AppProps) => {
 
   const { level } = useContext(AppContext);
-
-  console.log(words(level))
   const answer = words(level);
-  // const answer = words(level)[Math.floor(Math.random() * words(6).length)];
-
-  console.log(answer);
   const [key, setKey] = useState<string>("win")
   const [attemps, setAttemps] = useState<string[]>([]);
 
@@ -39,11 +34,9 @@ const App = ({ pca }: AppProps) => {
     setAttemps([])
   }, [level]);
 
-  console.log("KEY IS...", key)
 
   const isWinner = attemps.length > 0 && attemps[attemps.length - 1] === key;
   if (isWinner) {
-    console.log("WINNNING")
     return (
       <>
         <Confetti />

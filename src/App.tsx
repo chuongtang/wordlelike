@@ -19,26 +19,25 @@ type AppProps = {
   pca: IPublicClientApplication
 };
 
-const App = ({ pca }: AppProps)=> {
-  
+const App = ({ pca }: AppProps) => {
+
   const { level } = useContext(AppContext);
 
   console.log(words(level))
   const answer = words(level);
   // const answer = words(level)[Math.floor(Math.random() * words(6).length)];
-  
+
   console.log(answer);
-  const [showLevel, setShowLevel] = useState<number>(3);
   const [key, setKey] = useState<string>("win")
+  const [attemps, setAttemps] = useState<string[]>([]);
 
   useEffect(() => {
-    // console.log("Level in App", level)
-    // setShowLevel(level);
     setKey(answer);
 
+    // reset the attemps grid when level changed
+    setAttemps([])
   }, [level]);
 
-  const [attemps, setAttemps] = useState<string[]>([]);
 
   const isWinner = attemps.length > 0 && attemps[attemps.length - 1] === key;
   if (isWinner) {

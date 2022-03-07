@@ -13,6 +13,8 @@ const PlayAgain: React.FC<PlayAgainProps> = ({ answer, attemps, children }) => {
         <h2>
           The answer was <span className="text-green">{answer}</span>
         </h2>
+
+        <Attemps attemps={attemps} answer={answer} />
          <a className="doodle doodle-border" href="/"> Play again? </a>  
       </div>
     </div >

@@ -45,7 +45,16 @@ const App = ({ pca }: AppProps)=> {
     console.log("WINNNING")
     return (
       <PlayAgain attemps={attemps} answer={key}>
-        You win!
+        You Won🥇🏆!
+      </PlayAgain>
+    );
+  }
+
+  const isLoser = attemps.length >= level && attemps[attemps.length - 1] !== key;
+  if (isLoser) {
+    return (
+      <PlayAgain attemps={attemps} answer={key}>
+        You Lost🤔!
       </PlayAgain>
     );
   }

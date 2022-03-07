@@ -22,7 +22,7 @@ export const AppContextProvider = (props: Props) => {
   const [level, setLevel] = useState<number>(3);
   // Create context to feed into provider
   const context = { level, setLevel}
-  console.log('\x1b[32m%s\x1b[0m',level)
+  // console.log('\x1b[32m%s\x1b[0m',level)
   return (
     <AppContext.Provider value={context}>
       {children}

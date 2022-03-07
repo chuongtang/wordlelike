@@ -39,7 +39,7 @@ const Form: React.FC<FormProps> = ({ attemps, setAttemps }: FormProps) => {
         required
       />
     </form>
-    <h3>👈 Enter you guess here</h3>
+    <span>👈 Enter your guess here</span>
     </div>
   );
 };

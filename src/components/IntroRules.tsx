@@ -9,7 +9,6 @@ const IntoRules: React.FC = () => {
     <div className="text-center my-4">
      <h3>You have<span className="font-bold"> {level}</span> guesses.</h3>
       <ul className="text-left">
-        <li className="">Guess the word by typing it in the input below.</li>
         <li>
           If a letter is in the correct spot, it will be{" "}
           <span className="bg-green font-bold">green</span>

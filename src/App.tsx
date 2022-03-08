@@ -57,12 +57,11 @@ const App = ({ pca }: AppProps) => {
   }
 
   return (
-    <div className="grid place-content-center doodle">
+    <div className="grid place-content-center doodle mainBD">
       <MsalProvider instance={pca}>
         <SignInSignOutButton />
         <h1 className="text-center">WordleLike</h1>
-        <h2 className="text-center">How many words can you wordle in this wordleLike game of wordle?</h2>
-        <p className="text-center">( kinda like Tongue Twisters 😛 eh?)</p>
+        <h2 className="text-center">How many words can you wordle in this wordleLike game of w😛rdle?</h2>
         <AuthenticatedTemplate>
           <LevelSelector />
         </AuthenticatedTemplate>

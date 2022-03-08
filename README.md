@@ -18,3 +18,15 @@
 **Deployment:** 
 * <img src="https://chuongtang.github.io/sourceStore/logos/Azure.png" alt="Azure Logo"
 	title="Azure logo" height="20" /> [Azure Static Web Apps: ](https://docs.microsoft.com/en-us/azure/static-web-apps/getting-started?tabs=react) allows you to build modern web applications that automatically publish to the web as your code changes.
+
+
+
+## License
+
+<a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">
+<img src="https://img.shields.io/badge/License-APACHE%20LICENSE%2C%20VERSION%202.0-green" alt="Apache License"	title="Apache licenses Apache Software"  height="20" />
+</a>
+
+## Feedback
+
+If you have any feedback, please reach out to me at email@chuongtang.com

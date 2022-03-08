@@ -34,7 +34,6 @@ const App = ({ pca }: AppProps) => {
     setAttemps([])
   }, [level]);
 
-
   const isWinner = attemps.length > 0 && attemps[attemps.length - 1] === key;
   if (isWinner) {
     return (
@@ -60,7 +59,7 @@ const App = ({ pca }: AppProps) => {
     <div className="grid place-content-center doodle mainBD">
       <MsalProvider instance={pca}>
         <SignInSignOutButton />
-        <h1 className="text-center">WordleLike</h1>
+        <h1 className="text-center animate-ping">WordleLike</h1>
         <h2 className="text-center">How many words can you wordle in this wordleLike game of w😛rdle?</h2>
         <AuthenticatedTemplate>
           <LevelSelector />

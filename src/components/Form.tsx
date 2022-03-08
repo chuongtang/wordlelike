@@ -28,7 +28,7 @@ const Form: React.FC<FormProps> = ({ attemps, setAttemps }: FormProps) => {
 
   return (
     <div className="flex">
-    <form onSubmit={handleSubmit} className="doodle">
+    <form onSubmit={handleSubmit} >
       <input
         // className="doodle doodle-border"
         type="text"

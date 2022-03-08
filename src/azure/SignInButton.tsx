@@ -21,7 +21,7 @@ export const SignInButton = () => {
         <div>
             <button
                 onClick={() => handleLogin("popup")}
-                className="doodle animate-bounce"
+                className="animate-bounce"
             >
                 Login
             </button> <span>to try different levels</span>

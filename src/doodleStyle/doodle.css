@@ -18,7 +18,7 @@ h3{
   color:#3D405B
 }
 .mainBD{
-  height: 95vh;
+  height: 100vh;
 }
 .doodle * {
   box-sizing: border-box;
@@ -31,7 +31,7 @@ h3{
   color: #3c3c3c;
   /* padding: 0.5em; */
   border-radius: 0.5em;
-  
+  overflow: scroll;
 }
 
 .doodle input, .doodle textarea, .doodle table, .doodle img {
@@ -84,6 +84,10 @@ h3{
 .doodle button:hover {
   box-shadow: inset 100px 0 0 0 #81B29A;
   color: white;
+}
+.doodle select:hover {
+  box-shadow: inset 100px 0 0 0 #E07A5F;
+  color: #81B29A;
 }
 
 .doodle input[type="color"] {
@@ -267,11 +271,16 @@ h3{
   -webkit-justify-content: center;
   justify-content: center;
 }
+.place-self-center {
+  -ms-grid-row-align: center;
+  -ms-grid-column-align: center;
+  place-self: center;
+}
 .attempBox {
 height: 3rem;
 width: 3rem;
-padding: 0.25rem;
-margin: 0.25rem;
+padding: 0.1rem;
+margin: auto;
 }
 
 /* AnimtedBounce */
@@ -307,3 +316,33 @@ margin: 0.25rem;
   -webkit-animation: bounce 1s infinite;
   animation: bounce 1s infinite;
 }
+
+@keyframes ping {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  75%, 100% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes ping {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  75%, 100% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+.animate-ping {
+  -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) 2;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) 2;
+}
+

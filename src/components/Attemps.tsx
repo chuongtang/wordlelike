@@ -40,7 +40,7 @@ const Attemps: React.FC<AttempsProps> = ({ attemps, answer }) => {
   const { level } = useContext(AppContext);
   
   return (
-    <ol className="m-4">
+    <ol className="place-self-center">
       {attemps.map((attemp, attempIndex) => (
         <li key={attempIndex} style={{display:'grid', gridTemplateColumns: `repeat(${level}, minmax(0, 1fr))`}}>
           {attemp.split("").map((letter, letterIndex) => (
@@ -50,7 +50,7 @@ const Attemps: React.FC<AttempsProps> = ({ attemps, answer }) => {
                 attemp,
                 letterIndex,
                 answer
-              )} attempBox flex doodle-border justify-center place-content-center`}
+              )} attempBox doodle-border`}
             >
               {letter}
             </span>

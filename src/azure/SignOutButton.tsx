@@ -33,7 +33,7 @@ export const SignOutButton = () => {
             
             <button
                 onClick={() => handleLogout("popup")}
-                className="doodle float-right"
+                className="float-right"
             >
                 Sign Out
             </button>

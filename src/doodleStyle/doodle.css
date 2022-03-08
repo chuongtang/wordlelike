@@ -7,6 +7,8 @@
   margin: auto;
   padding: 0.5em;
   font-family: 'Short Stack', cursive;
+  overflow: scroll;
+  
 }
 h1{
   color: #E07A5F;
@@ -17,9 +19,7 @@ h2{
 h3{
   color:#3D405B
 }
-.mainBD{
-  height: 100vh;
-}
+
 .doodle * {
   box-sizing: border-box;
   
@@ -31,7 +31,7 @@ h3{
   color: #3c3c3c;
   /* padding: 0.5em; */
   border-radius: 0.5em;
-  overflow: scroll;
+  
 }
 
 .doodle input, .doodle textarea, .doodle table, .doodle img {
@@ -275,12 +275,6 @@ h3{
   -ms-grid-row-align: center;
   -ms-grid-column-align: center;
   place-self: center;
-}
-.attempBox {
-height: 3rem;
-width: 3rem;
-padding: 0.1rem;
-margin: auto;
 }
 
 /* AnimtedBounce */

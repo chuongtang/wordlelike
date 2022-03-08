@@ -50,7 +50,7 @@ const Attemps: React.FC<AttempsProps> = ({ attemps, answer }) => {
                 attemp,
                 letterIndex,
                 answer
-              )} attempBox doodle-border`}
+              )}  doodle-border`}
             >
               {letter}
             </span>

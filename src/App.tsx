@@ -49,14 +49,16 @@ const App = ({ pca }: AppProps) => {
   const isLoser = attemps.length >= level && attemps[attemps.length - 1] !== key;
   if (isLoser) {
     return (
-      <PlayAgain attemps={attemps} answer={key}>
+
+      <PlayAgain attemps={attemps} answer={key} >
         You Lost🤔!
       </PlayAgain>
+
     );
   }
 
   return (
-    <div className="grid place-content-center doodle mainBD">
+    <div className="grid place-content-center doodle">
       <MsalProvider instance={pca}>
         <SignInSignOutButton />
         <h1 className="text-center animate-ping">WordleLike</h1>

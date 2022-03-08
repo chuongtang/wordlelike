@@ -1,7 +1,7 @@
 import { Configuration, PopupRequest } from "@azure/msal-browser";
 
 // Config object to be passed to Msal on creation
-const msalID:string = (import.meta.env.VITE_AZURE_APP_CLIENT_ID as string);
+const msalID:string = import.meta.env.VITE_AZURE_APP_CLIENT_ID;
 
 export const msalConfig: Configuration = {
     auth: {

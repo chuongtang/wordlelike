@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+
 interface ImportMetaEnv {
   readonly VITE_AZURE_APP_CLIENT_ID: string
   // more env variables...

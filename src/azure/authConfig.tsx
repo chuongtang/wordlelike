@@ -5,7 +5,7 @@ import { Configuration, PopupRequest } from "@azure/msal-browser";
 
 export const msalConfig: Configuration = {
     auth: {
-        clientId: import.meta.env.VITE_AZURE_APP_CLIENT_ID,
+        clientId: '200081a5-4c35-454a-9a5b-96f394f74c3c',
         redirectUri: "/",
         postLogoutRedirectUri: "/"
     }

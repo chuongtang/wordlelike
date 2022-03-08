@@ -3,11 +3,6 @@ import { useMsal, useAccount } from "@azure/msal-react";
 
 export const SignOutButton = () => {
     const { instance } = useMsal();
-    const [userDetail, setUserDetail] = useState();
-    // const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    // const open = Boolean(anchorEl);
-
-    // Display signed in userDetail
 
     const { accounts } = useMsal();
     const account = useAccount(accounts[0] || {});
@@ -22,7 +17,6 @@ export const SignOutButton = () => {
     }, [account]);
 
     const handleLogout = (logoutType: string) => {
-        // setAnchorEl(null);
 
         if (logoutType === "popup") {
             instance.logoutPopup({

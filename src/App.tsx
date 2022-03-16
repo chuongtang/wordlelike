@@ -6,21 +6,21 @@ import Attemps from "./components/Attemps";
 import LevelSelector from "./components/LevelSelector";
 import AppContext from './context/AppContext'
 import words from './answers/words'
-import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
+// import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
 import './App.css'
 import Confetti from 'react-confetti'
 
 // MSAL imports
-import { MsalProvider } from "@azure/msal-react";
-import { IPublicClientApplication } from "@azure/msal-browser";
-import SignInSignOutButton from './azure/SignInSignOutButton';
+// import { MsalProvider } from "@azure/msal-react";
+// import { IPublicClientApplication } from "@azure/msal-browser";
+// import SignInSignOutButton from './azure/SignInSignOutButton';
 import { AppContextProvider } from './context/AppContext';
 
-type AppProps = {
-  pca: IPublicClientApplication
-};
+// type AppProps = {
+//   pca: IPublicClientApplication
+// };
 
-const App = ({ pca }: AppProps) => {
+const App = () => {
 
   const { level } = useContext(AppContext);
   const answer = words(level);
@@ -59,17 +59,17 @@ const App = ({ pca }: AppProps) => {
 
   return (
     <div className="grid place-content-center doodle">
-      <MsalProvider instance={pca}>
-        <SignInSignOutButton />
+      {/* <MsalProvider instance={pca}>
+        <SignInSignOutButton /> */}
         <h1 className="text-center animate-ping">WordleLike</h1>
         <h2 className="text-center">How many words can you wordle in this wordleLike game of w😛rdle?</h2>
-        <AuthenticatedTemplate>
+        {/* <AuthenticatedTemplate> */}
           <LevelSelector />
-        </AuthenticatedTemplate>
+        {/* </AuthenticatedTemplate> */}
         <IntroRules />
         <Form attemps={attemps} setAttemps={setAttemps} />
         <Attemps attemps={attemps} answer={key} />
-      </MsalProvider>
+      {/* </MsalProvider> */}
     </div>
   )
 }

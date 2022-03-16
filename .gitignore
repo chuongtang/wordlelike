@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 .env
 log.txt
+
+#Tauri
+src-tauri/target

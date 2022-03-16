@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "start": "dev",
+    "start": "npm run dev",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },

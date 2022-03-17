@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "WordleLike",
+    "short_name": "Game of WordleLike",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",

@@ -4,6 +4,20 @@ import ReactDOM from 'react-dom'
 import './doodleStyle/doodle.css'
 import App from './App'
 import { AppContextProvider } from './context/AppContext'
+import { registerSW } from 'virtual:pwa-register';
+
+const intervalMS = 60 * 60 * 1000;
+
+const updateSW = registerSW({
+  onNeedRefresh() {},
+  onOfflineReady() {},
+  onRegistered(r: ServiceWorkerRegistration | undefined) {
+    r &&
+      setInterval(() => {
+        r.update();
+      }, intervalMS);
+  },
+})
 
 // MSAL imports
 // import { PublicClientApplication, EventType, EventMessage, AuthenticationResult } from "@azure/msal-browser";

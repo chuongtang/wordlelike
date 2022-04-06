@@ -62,7 +62,7 @@ const App = () => {
       {/* <MsalProvider instance={pca}>
         <SignInSignOutButton /> */}
         <h1 className="text-center animate-ping">WordleLike</h1>
-        <h2 className="text-center">How many words can you wordle in this wordleLike game of w😛rdle?</h2>
+        <h2 className="text-center">How many words can you wordle in this wordleLike game of wordler?</h2>
         {/* <AuthenticatedTemplate> */}
           <LevelSelector />
         {/* </AuthenticatedTemplate> */}
